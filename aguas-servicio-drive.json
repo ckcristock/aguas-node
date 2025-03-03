@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "aguas-452423",
+  "private_key_id": "79f0ef7677fdba6ea38d61edba79843721c23a34",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDPeylaR6f1Z3ui\nos9bmmKISx4inyYdyTuFWk+pHmo7lqmBYnJHoOSM5gvrNUE25A8u2GkL1o/jlAy9\npvrxz/C0o5vVJlrNI7PSAbow6reNRT2i3VfJ7t9eUOnBTYompC9b6UMpPodwpSnS\nUZCb62AS52iwPh6AR6y2Bx0V6yMMBOKdZ7uVB0+Cp/bzlILToKAk256cKMxk8K4C\nRJysvTr4QR/Trk47HJLuQN7HtMe/cd+Y8QzsmyuAfBZf+TV3YYxtgB7ykQlqxj4+\ngI908df6agAI0f+26YFhIzx88wobLUea0B2DssIC0IsJPC+Xf3+Gv2MA4W6lc1/l\norYsiNgjAgMBAAECggEANxMt4HGZ84oDJyJJobrDAgPSnYUadJiorJbTA4T31RaC\nqz4rMLlUQdSFAGwUAhKatygqBkLv0gzILwWmok68ye6OHJAAVWjvQEVGG9sKWz0w\nhc10kr1OXLZkvnOrQuOdUKwEMGwRPsUQ62vMU58w0wPLZdEvfoTII0+TGHDgzjz4\n0PuAEMFdaL4yX8oFkrRmNsTv1wRYHQjDKZ5nr07ztBs+eDhjlwp7B+I1uzgwBj/V\nP4G+QBPiNbjfNYs5tFE8QtQRUf0/54A6q8k7J/5F/XpGyk5FVicFIxg2sq3vx9PP\ncHm00Xo8kQHiRCN2dafbEi/t89nHG0I0FeQ3A7m2bQKBgQD9uLfzy2/Gg6LXgmAA\n+VAW3alH1/tTSFLzuXZh19yDHVJP/w7usbfNlsXNQt68AWryJh54svdgdIO9VDw0\n9/Zshk9JdvydgbDxyfn0mdhrpCkYHN0a7wYDPCc6oJyahHuF+mZ8cVCciEUPoABT\nVSRgifPBxLHofHZzvZZ80J03hwKBgQDRWCP/Bq1sFBOURQQDlQx0qLjaR8TqtAyC\n3f+tWGG8sDx+kGzXtJF0KGFBbTQ8osS8nf2tXpEQNWLPEtbredHvHNEi20Y5cIu0\nidXfERWkOv8OmbeyXcTo0tRShLvR032UCJFIjgQGVj4AGfFalWQ2QnOkpwC4wll0\n3O1yoC7JhQKBgQDgzk6PQO3k4rXiZa5SrpR77iMTeRdCj46QTP/LacwEkHJiVwgQ\nDn9hNfpFCL75rffoXkYZg9kUKaiglIZUGHDLb6XI3hiuJj91vRQv2jCcD3Qp3Uk7\nmBWnwCCyHaUkc8ZOy7MLCAv45fTrB0XCkGoO76x/P5yy9bSukIlKRj1G+QKBgExQ\nmFa4xXG34+dSPYNcy3yfoTuZnDR/TGxMp482v/J8QKFW3wbHgZrZuZKTT86m+5dS\n9Q5FghZpj8qzMHwJHbnQRIEzdGcuGw/Gi5vU65HCHAbjjK7ONiE18kbesmVsdsQH\nV4celmME/3cj/fMqsKyDDwtAAihYWSob+8ekk0nNAoGAYkxLJDyHYeWruyNw+SFP\nGGyhmaFmBF9UAfhe2on7Jkg21O2iRdMDNDjfiBuHoJzDIarljQBB7gRxUgd03c7j\nQ2TrpIOKDRqrfNT7alsYoPyppRz2rStCJ3VfqIZN5H0Q04NvmwyOTWQ+Ma76OE55\nw7M4KmXtIyp/4TTi9O/iNr8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "aguas-servicio-drive@aguas-452423.iam.gserviceaccount.com",
+  "client_id": "103573966832086270690",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aguas-servicio-drive%40aguas-452423.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
