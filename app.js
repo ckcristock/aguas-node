@@ -1,10 +1,13 @@
 const express = require("express");
 const { google } = require("googleapis");
 const cors = require("cors");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 app.use(cors());
+app.use(express.json()); // Para parsear JSON en las peticiones
 
+// Configuración de autenticación para Google Drive
 const auth = new google.auth.GoogleAuth({
   keyFile: "./aguas-servicio-drive.json",
   scopes: ["https://www.googleapis.com/auth/drive.readonly"],
@@ -12,6 +15,7 @@ const auth = new google.auth.GoogleAuth({
 
 const drive = google.drive({ version: "v3", auth });
 
+// Función para obtener imágenes por clientId
 async function getImagesByClientId(clientId) {
   const folderId = "1amVmSFsv-BoSGec_3jXmuoNtMcezV--U";
   const query = `'${folderId}' in parents and name contains '${clientId}_'`;
@@ -30,6 +34,7 @@ async function getImagesByClientId(clientId) {
   }));
 }
 
+// Endpoints de imágenes
 app.get("/get-images", async (req, res) => {
   const clientId = req.query.clientId;
   if (!clientId) return res.status(400).json({ error: "Falta el clientId" });
@@ -54,7 +59,6 @@ app.get("/api/drive-file", async (req, res) => {
       { fileId, alt: "media" },
       { responseType: "arraybuffer" }
     );
-
     res.setHeader("Content-Type", "image/jpeg");
     return res.send(Buffer.from(file.data));
   } catch (error) {
@@ -62,5 +66,8 @@ app.get("/api/drive-file", async (req, res) => {
     return res.status(500).send("No se pudo obtener el archivo de Drive");
   }
 });
+
+// Rutas para el CRUD de usuarios
+app.use("/users", userRoutes);
 
 app.listen(5000, () => console.log("Servidor en http://localhost:5000"));
