@@ -7,16 +7,11 @@ function authMiddleware(req, res, next) {
   }
 
   try {
-    // 🔹 Verifica el token antes de pasar al siguiente middleware
-    const decoded = jwt.decode(token);
-    if (!decoded) {
-      return res.status(403).json({ error: "Token inválido" });
-    }
-
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(403).json({ error: "Error al validar el token" });
+    return res.status(403).json({ error: "Token inválido" });
   }
 }
 
