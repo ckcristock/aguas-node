@@ -123,6 +123,41 @@ app.get("/get-images", authMiddleware, async (req, res) => {
   }
 });
 
+// Endpoint protegido para obtener el archivo de Google Drive
+app.get("/api/drive-file", authMiddleware, async (req, res) => {
+  const fileId = req.query.fileId;
+  if (!fileId) {
+    return res.status(400).json({ error: "Falta el fileId" });
+  }
+
+  try {
+    // Verificar que el usuario autenticado exista en la DB
+    const [user] = await pool.query("SELECT * FROM usuarios WHERE id = ?", [
+      req.user.userId,
+    ]);
+    if (user.length === 0) {
+      return res.status(403).json({ error: "Usuario no autorizado" });
+    }
+
+    // Solicitar el archivo desde Google Drive
+    const driveResponse = await drive.files.get(
+      { fileId, alt: "media" },
+      { responseType: "stream" }
+    );
+
+    // Transmitir el archivo al cliente
+    driveResponse.data
+      .on("error", (err) => {
+        console.error("Error al transmitir el archivo:", err);
+        res.status(500).send("Error en la transmisión del archivo");
+      })
+      .pipe(res);
+  } catch (error) {
+    console.error("Error al obtener el archivo de Drive:", error);
+    res.status(500).json({ error: "Error al obtener el archivo de Drive" });
+  }
+});
+
 app.use("/users", authMiddleware, userRoutes);
 
 app.listen(5000, () => console.log("🚀 Servidor en http://localhost:5000"));
