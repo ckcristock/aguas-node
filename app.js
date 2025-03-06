@@ -28,8 +28,10 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.JWT_SECRET) {
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-function generateJWT(userId) {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "1h" });
+function generateJWT(userId, role) {
+  return jwt.sign({ userId, role }, process.env.JWT_SECRET, {
+    expiresIn: "1h",
+  });
 }
 
 // Autenticación con Google y validación en BD
@@ -62,7 +64,8 @@ app.post("/auth/google-login", async (req, res) => {
         .json({ success: false, error: "Usuario no autorizado" });
     }
 
-    const jwtToken = generateJWT(rows[0].id);
+    const jwtToken = generateJWT(rows[0].id, rows[0].rol);
+
     res.cookie("accessToken", jwtToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -70,7 +73,9 @@ app.post("/auth/google-login", async (req, res) => {
       maxAge: 3600000,
     });
 
-    return res.status(200).json({ success: true, token: jwtToken });
+    return res
+      .status(200)
+      .json({ success: true, token: jwtToken, rol: rows[0].rol });
   } catch (error) {
     console.error("❌ Error en la autenticación con Google:", error.message);
     return res
