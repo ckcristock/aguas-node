@@ -163,6 +163,15 @@ app.get("/api/drive-file", authMiddleware, async (req, res) => {
   }
 });
 
+// Endpoint para obtener el rol del usuario
+app.get("/auth/get-role", authMiddleware, (req, res) => {
+  const userRole = req.cookies.userRole;
+  if (!userRole) {
+    return res.status(401).json({ error: "No autenticado" });
+  }
+  res.json({ role: userRole });
+});
+
 app.use("/users", authMiddleware, userRoutes);
 
 app.listen(5000, () => console.log("🚀 Servidor en http://localhost:5000"));
